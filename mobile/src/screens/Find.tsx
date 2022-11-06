@@ -8,25 +8,25 @@ import { Button } from "../components/Button";
 export function Find(){
     return(
         <VStack flex={1} bgColor='gray.900' /*p={7}*/>
-           <Header title="Criar novo bolão"/>
+           <Header title="Buscar por código"/>
 
            <VStack mt={8} mx={5} alignItems=  "center">
 
                 <Logo />
 
                 <Heading fontFamily='heading' color="white" fontSize="xl"  my={8} textAlign="center">
-                    Crie seu proprio bolão da copa e compatilhe entre amigos!
+                    Econtre um bolão atraves de um código único
                 </Heading>
 
                 <Input 
 
                 mb={2}
-                placeholder="Qual o nome do seu bolão?"
+                placeholder="Qual o código do bolão?"
 
                 />
 
                 <Button
-                    title="CRIAR MEU BOLÃO"
+                    title="BUSCAR BOLÃO"
                 />
 
                 <Text color="gray.200" fontSize="sm" textAlign="center" px={10} mt={4}>
