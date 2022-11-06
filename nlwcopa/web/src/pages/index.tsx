@@ -1,8 +1,8 @@
 import Image from 'next/image'
 import appPreviwImg from '../assets/app-nlw-copa-preview.png'
 import logoImg from '../assets/logo.svg'
-import usersAvatarExampleImg from '../assets/users-avatar-exemple.png'
-import iconCheckImg from '../assets/icon-check.svg'
+import usersAvatarExampleImg from '../assets/avatares.png'
+import iconCheckImg from '../assets/icon.svg'
 import { api } from '../lib/axios'
 import { FormEvent, useState } from 'react'
 
