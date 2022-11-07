@@ -54,9 +54,13 @@ export function AuthContextProvider( { children } : AuthProviderProps ){
     async function singInWithGoogle(acess_token:string) {
         try {
             setIsUserLoading(true);
-            console.log(acess_token)
+            console.log(acess_token) // para tester HTTP
             const tokenResponse = await api.post('/users', { acess_token })
-            console.log(tokenResponse.data)
+            api.defaults.headers.common['Authorization'] = `Bearer ${tokenResponse.data.token}`;
+
+            const userInfoResponse = await api.get('/me');
+            console.log(userInfoResponse)
+
             
         } catch (error) {
             console.log("teste erro")
