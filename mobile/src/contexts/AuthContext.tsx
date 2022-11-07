@@ -2,6 +2,7 @@ import { createContext, ReactNode, useState, useEffect } from "react";
 import *  as Google from  'expo-auth-session/providers/google';
 import * as AuthSession from 'expo-auth-session';
 import * as WebBrowser from 'expo-web-browser'
+import {api} from '../services/api'
 
 WebBrowser.maybeCompleteAuthSession();// GARANTE O REDIRECIONAMENTO
 
@@ -38,7 +39,6 @@ export function AuthContextProvider( { children } : AuthProviderProps ){
 
     async function singIn() {
         try {
-            console.log('Ai qui dilicia == iniciando login');
             setIsUserLoading(true);
             await promptAsync(); //começa autenticação
 
@@ -46,13 +46,26 @@ export function AuthContextProvider( { children } : AuthProviderProps ){
             console.log(error)
             throw error;
         }finally{
-            console.log('CAVALO == sucesso')
             setIsUserLoading(false);
+            console.log(singIn)
         }
     }
 
     async function singInWithGoogle(acess_token:string) {
-        console.log("QUE ISSO MEU FILHO CALMA ==>",acess_token);
+        try {
+            setIsUserLoading(true);
+            console.log(acess_token)
+            const tokenResponse = await api.post('/users', { acess_token })
+            console.log(tokenResponse.data)
+            
+        } catch (error) {
+            console.log("teste erro")
+            console.log(error);
+            throw error;
+        }finally{
+            console.log("teste final")
+            setIsUserLoading(false);
+        }
     }
 
     useEffect(() =>{

@@ -1,5 +1,5 @@
 export declare global {
-    namespace ReacNavigation{
+    namespace ReactNavigation{
         interface RootParamList{
             new: undefined;
             pools: undefined;
